@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <widget class="QFrame" name="title_frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="title_icon">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="title_label">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QListWidget" name="listWidget_icon_only">
+      <property name="maximumSize">
+       <size>
+        <width>55</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QListWidget" name="listWidget">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>General</string>
+    </property>
+    <addaction name="actionAgregar_base_de_datos"/>
+    <addaction name="actionExportar_Base_de_Datos"/>
+   </widget>
+   <widget class="QMenu" name="menuQuinquenio">
+    <property name="title">
+     <string>Quinquenio</string>
+    </property>
+    <addaction name="actionImportar_Base_de_Datos"/>
+    <addaction name="actionExportar_Base_de_Datos_3"/>
+    <addaction name="separator"/>
+    <addaction name="actionEliminar_Base_de_Datos_2"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuQuinquenio"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAgregar_base_de_datos">
+   <property name="text">
+    <string>Importar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionExportar_Base_de_Datos">
+   <property name="text">
+    <string>Exportar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionExportar_Base_de_Datos_2">
+   <property name="text">
+    <string>Exportar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionEliminar_Base_de_Datos">
+   <property name="text">
+    <string>Eliminar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionImportar_Base_de_Datos">
+   <property name="text">
+    <string>Importar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionExportar_Base_de_Datos_3">
+   <property name="text">
+    <string>Exportar Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionEliminar_Base_de_Datos_2">
+   <property name="text">
+    <string>Eliminar Base de Datos</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
