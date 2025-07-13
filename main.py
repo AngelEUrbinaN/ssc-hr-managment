@@ -6,8 +6,11 @@ from PyQt6.QtWidgets import QMainWindow, QApplication, QLabel, QListWidgetItem, 
 from PyQt6.QtCore import Qt, QSize
 from PyQt6.QtGui import QIcon, QPixmap, QFont
 
-# Import the UI class from the 'quinquenio_ui' module
+# Import the UI class from the sections modules
 from sections.quinquenio import QuinquenioWidget
+from sections.lactancia import LactanciaWidget
+from sections.accidente import AccidenteWidget
+from sections.tiempoxtiempo import TiempoXTiempoWidget
 
 # Import the UI class from the 'main_ui' module
 from ui_files.main_ui import Ui_MainWindow
@@ -20,6 +23,14 @@ class MainWindow(QMainWindow):
         # Initialize the UI from the generated 'main_ui' class
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        # Set the window size
+        screen = QApplication.primaryScreen().availableGeometry()
+        width = int(screen.width() * 0.5)
+        height = int(screen.height() * 0.7)
+        
+        # Set the window size
+        self.setFixedSize(width, height)
 
         # Initialize UI elements
         self.title_label = self.ui.title_label
@@ -144,14 +155,14 @@ class MainWindow(QMainWindow):
         for widget in widget_list:
             self.main_content.removeWidget(widget)
 
-        self.main_content.addWidget(QuinquenioWidget())     # index 0
-        self.main_content.addWidget(QWidget())              # Lactancia (por ahora vacío)
+        self.main_content.addWidget(QuinquenioWidget())     # Quinquenio
+        self.main_content.addWidget(LactanciaWidget())      # Lactancia
         self.main_content.addWidget(QWidget())              # Vacaciones
         self.main_content.addWidget(QWidget())              # Permisos
         self.main_content.addWidget(QWidget())              # Modif. Vacaciones
         self.main_content.addWidget(QWidget())              # Movimiento
-        self.main_content.addWidget(QWidget())              # Tiempo X Tiempo
-        self.main_content.addWidget(QWidget())              # Accidente
+        self.main_content.addWidget(TiempoXTiempoWidget())              # Tiempo X Tiempo
+        self.main_content.addWidget(AccidenteWidget())              # Accidente
 
     def import_main_db(self):
         # Import the main (employees) database
