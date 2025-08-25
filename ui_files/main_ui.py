@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file './ui_files/main.ui'
 #
 # Created by: PyQt6 UI code generator 6.9.1
 #
@@ -54,12 +54,10 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.listWidget, 1, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         self.menuArchivo = QtWidgets.QMenu(parent=self.menubar)
         self.menuArchivo.setObjectName("menuArchivo")
-        self.menuQuinquenio = QtWidgets.QMenu(parent=self.menubar)
-        self.menuQuinquenio.setObjectName("menuQuinquenio")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -80,12 +78,7 @@ class Ui_MainWindow(object):
         self.actionEliminar_Base_de_Datos_2.setObjectName("actionEliminar_Base_de_Datos_2")
         self.menuArchivo.addAction(self.actionAgregar_base_de_datos)
         self.menuArchivo.addAction(self.actionExportar_Base_de_Datos)
-        self.menuQuinquenio.addAction(self.actionImportar_Base_de_Datos)
-        self.menuQuinquenio.addAction(self.actionExportar_Base_de_Datos_3)
-        self.menuQuinquenio.addSeparator()
-        self.menuQuinquenio.addAction(self.actionEliminar_Base_de_Datos_2)
         self.menubar.addAction(self.menuArchivo.menuAction())
-        self.menubar.addAction(self.menuQuinquenio.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -97,7 +90,6 @@ class Ui_MainWindow(object):
         self.title_label.setText(_translate("MainWindow", "TextLabel"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.menuArchivo.setTitle(_translate("MainWindow", "General"))
-        self.menuQuinquenio.setTitle(_translate("MainWindow", "Quinquenio"))
         self.actionAgregar_base_de_datos.setText(_translate("MainWindow", "Importar Base de Datos"))
         self.actionExportar_Base_de_Datos.setText(_translate("MainWindow", "Exportar Base de Datos"))
         self.actionExportar_Base_de_Datos_2.setText(_translate("MainWindow", "Exportar Base de Datos"))

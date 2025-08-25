@@ -97,7 +97,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -107,17 +107,7 @@
     <addaction name="actionAgregar_base_de_datos"/>
     <addaction name="actionExportar_Base_de_Datos"/>
    </widget>
-   <widget class="QMenu" name="menuQuinquenio">
-    <property name="title">
-     <string>Quinquenio</string>
-    </property>
-    <addaction name="actionImportar_Base_de_Datos"/>
-    <addaction name="actionExportar_Base_de_Datos_3"/>
-    <addaction name="separator"/>
-    <addaction name="actionEliminar_Base_de_Datos_2"/>
-   </widget>
    <addaction name="menuArchivo"/>
-   <addaction name="menuQuinquenio"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAgregar_base_de_datos">

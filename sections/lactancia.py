@@ -28,6 +28,10 @@ class LactanciaWidget(QWidget):
         # Load employee data if there is a value in the no_emp_input
         self.ui.no_emp_input.returnPressed.connect(self.load_employee_data)
 
+        # Set current date
+        self.set_current_date()
+        self.calculate_maternity_leave()
+
         # Calculate maternity leave
         self.ui.mat_inicio_input.dateChanged.connect(self.calculate_maternity_leave)
 
@@ -36,6 +40,11 @@ class LactanciaWidget(QWidget):
 
         # Set locale for current date
         locale.setlocale(locale.LC_TIME, 'es_MX.UTF-8')
+
+    def set_current_date(self):
+        # Set current date
+        current_date = datetime.datetime.now().strftime("%d/%m/%Y")
+        self.ui.mat_inicio_input.setDate(datetime.datetime.strptime(current_date, "%d/%m/%Y"))
 
     def load_employee_data(self):
         # Load employee data from Excel
@@ -173,12 +182,10 @@ class LactanciaWidget(QWidget):
         self.ui.area_input.clear()
         self.ui.no_emp_input.clear()
         self.ui.puesto_input.clear()
-        self.ui.mat_inicio_input.clear()
-        self.ui.mat_termino_input.clear()
-        self.ui.lac_inicio_input.clear()
-        self.ui.lac_termino_input.clear()
         self.ui.hor_lac_input.clear()
         self.ui.observ_input.clear()
+        self.set_current_date()
+        self.calculate_maternity_leave()
     
     def read_main_database(self):
         try:

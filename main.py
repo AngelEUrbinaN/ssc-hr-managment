@@ -11,6 +11,10 @@ from sections.quinquenio import QuinquenioWidget
 from sections.lactancia import LactanciaWidget
 from sections.accidente import AccidenteWidget
 from sections.tiempoxtiempo import TiempoXTiempoWidget
+from sections.permiso import PermisoWidget
+from sections.vacaciones import VacacionesWidget
+from sections.modif_vacaciones import ModifVacacionesWidget
+from sections.movimiento import MovimientoWidget
 
 # Import the UI class from the 'main_ui' module
 from ui_files.main_ui import Ui_MainWindow
@@ -30,7 +34,7 @@ class MainWindow(QMainWindow):
         height = int(screen.height() * 0.7)
         
         # Set the window size
-        self.setFixedSize(width, height)
+        # self.setFixedSize(width, height)
 
         # Initialize UI elements
         self.title_label = self.ui.title_label
@@ -155,14 +159,14 @@ class MainWindow(QMainWindow):
         for widget in widget_list:
             self.main_content.removeWidget(widget)
 
-        self.main_content.addWidget(QuinquenioWidget())     # Quinquenio
-        self.main_content.addWidget(LactanciaWidget())      # Lactancia
-        self.main_content.addWidget(QWidget())              # Vacaciones
-        self.main_content.addWidget(QWidget())              # Permisos
-        self.main_content.addWidget(QWidget())              # Modif. Vacaciones
-        self.main_content.addWidget(QWidget())              # Movimiento
-        self.main_content.addWidget(TiempoXTiempoWidget())              # Tiempo X Tiempo
-        self.main_content.addWidget(AccidenteWidget())              # Accidente
+        self.main_content.addWidget(QuinquenioWidget())         # Quinquenio
+        self.main_content.addWidget(LactanciaWidget())          # Lactancia
+        self.main_content.addWidget(VacacionesWidget())         # Vacaciones
+        self.main_content.addWidget(PermisoWidget())            # Permisos
+        self.main_content.addWidget(ModifVacacionesWidget())    # Modif. Vacaciones
+        self.main_content.addWidget(MovimientoWidget())         # Movimiento
+        self.main_content.addWidget(TiempoXTiempoWidget())      # Tiempo X Tiempo
+        self.main_content.addWidget(AccidenteWidget())          # Accidente
 
     def import_main_db(self):
         # Import the main (employees) database
@@ -177,7 +181,7 @@ class MainWindow(QMainWindow):
 
     def export_main_db(self):
         # Export the main (employees) database
-        current_dir = os.path.join("data", "main.db")
+        current_dir = os.path.join("data", "main.xlsx")
 
         if not os.path.exists(current_dir):
             QMessageBox.critical(self, "Exportar Base de Datos", "No se pudo encontrar la Base de Datos.")

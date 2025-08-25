@@ -1,7 +1,11 @@
 from PyQt6.QtWidgets import QWidget, QTableWidgetItem, QMessageBox, QFileDialog
+from PyQt6.QtCore import QDate, QTime
 from ui_files.accidente_ui import Ui_Form
 import pandas as pd
 from docx import Document
+from docx.oxml import parse_xml
+from docx.oxml.ns import nsdecls
+import datetime
 
 class AccidenteWidget(QWidget):
     def __init__(self):
@@ -14,6 +18,11 @@ class AccidenteWidget(QWidget):
 
         # Load recent records when the widget is initialized
         self.load_recent_records()
+
+        # Set current date
+        self.ui.descanso_input.setDate(datetime.datetime.now())
+        self.ui.fecha_prt_input.setDate(datetime.datetime.now())
+        self.ui.fecha_aviso_input.setDate(datetime.datetime.now())
 
         # Load employee data if there is a value in the no_emp_input
         self.ui.no_emp_input.returnPressed.connect(self.load_employee_data)
@@ -78,7 +87,7 @@ class AccidenteWidget(QWidget):
         # Create a new DataFrame with the data
         nuevo = pd.DataFrame([data])
         try:
-            df = pd.read_excel("./data/database/accidentes.xlsx") if pd.io.common.file_exists("./data/database/lactancias.xlsx") else pd.DataFrame()
+            df = pd.read_excel("./data/database/accidentes.xlsx") if pd.io.common.file_exists("./data/database/accidentes.xlsx") else pd.DataFrame()
         except Exception:
             df = pd.DataFrame()
 
@@ -88,6 +97,7 @@ class AccidenteWidget(QWidget):
 
         self.clear_inputs()
         self.load_recent_records()
+
     
     def create_word_document(self):
         template = Document('./data/templates/accidente.docx')
@@ -121,8 +131,12 @@ class AccidenteWidget(QWidget):
                         for paragraph in cell.paragraphs:
                             replace_markers(paragraph, key, value)
 
+        si_selected = self.ui.aceptacion_si_button.isChecked()
+        no_selected = self.ui.aceptacion_no_button.isChecked()
+        shade_acceptance_cell(template, si_selected, no_selected)
+
         # Suggested file name
-        suggested_name = f"{data['Nombre']}_ACCIDENTE.docx"
+        suggested_name = f"{data['Nombre'].upper()}_ACCIDENTE.docx"
 
         # Ask user where to save
         save_path, _ = QFileDialog.getSaveFileName(
@@ -140,16 +154,20 @@ class AccidenteWidget(QWidget):
     def clear_inputs(self):
         self.ui.no_emp_input.clear()
         self.ui.nombre_input.clear()
-        self.ui.cege_input.clear()
+        self.ui.lugar_input.clear()
         self.ui.area_input.clear()
         self.ui.categoria_input.clear()
-        self.ui.horario_input_1.clear()
-        self.ui.horario_input_2.clear()
-        self.ui.hora_input.clear()
-        self.ui.descanso_input.clear()
-        self.ui.fecha_prt_input.clear()
-        self.ui.fecha_aviso_input.clear()
+        self.ui.horario_input_1.setTime(QTime(0, 0))
+        self.ui.horario_input_2.setTime(QTime(0, 0))
+        self.ui.hora_input.setTime(QTime(0, 0))
         self.ui.comentarios_input.clear()
+        self.ui.comentarios_label.setText("Se anexa formato de calificación de probable accidente de trabajo ST- 7 y tarjeta informativa")
+        self.ui.aceptacion_si_button.setChecked(False)
+        self.ui.aceptacion_no_button.setChecked(False)
+        today_qdate = QDate.currentDate()
+        self.ui.descanso_input.setDate(today_qdate)
+        self.ui.fecha_prt_input.setDate(today_qdate)
+        self.ui.fecha_aviso_input.setDate(today_qdate)
     
     def read_main_database(self):
         try:
@@ -184,3 +202,56 @@ class AccidenteWidget(QWidget):
 
     def set_same_date(self):
         self.ui.fecha_aviso_input.setDate(self.ui.fecha_prt_input.date())
+
+def shade_cell(cell, hex_color="D9D9D9"):
+        cell._tc.get_or_add_tcPr().append(
+            parse_xml(f'<w:shd {nsdecls("w")} w:val="clear" w:color="auto" w:fill="{hex_color}"/>')
+        )
+
+def clear_cell_shading(cell):
+    cell._tc.get_or_add_tcPr().append(
+        parse_xml(f'<w:shd {nsdecls("w")} w:val="clear" w:color="auto" w:fill="FFFFFF"/>')
+    )
+
+def find_cells_by_text(doc: Document, targets: set[str]):
+    """Return list of (table_idx, row_idx, cell_idx, cell) for any cell whose text matches one of targets."""
+    hits = []
+    for ti, table in enumerate(doc.tables):
+        for ri, row in enumerate(table.rows):
+            for ci, cell in enumerate(row.cells):
+                if cell.text.strip().upper() in targets:
+                    hits.append((ti, ri, ci, cell))
+    return hits
+    
+def shade_acceptance_cell(doc: Document, si_selected: bool, no_selected: bool):
+    header_key = "ACEPTACIÓN DEL P. R.T"          # exact as appears in the template
+    targets     = {"SÍ", "SI", "NO"}              # allow both with/without accent
+    target_row = None
+    target_table = None
+    for table in doc.tables:
+        for row in table.rows:
+            # Find the row that contains the header cell
+            if any(header_key in cell.text for cell in row.cells):
+                target_row = row
+                target_table = table
+                break
+        if target_row:
+            break
+    if not target_row:
+        return  # header row not found; silently skip
+    # Inside that row, locate the “SÍ/NO” cells
+    si_cell = no_cell = None
+    for cell in target_row.cells:
+        t = cell.text.strip().upper()
+        if t in {"SÍ", "SI"}:
+            si_cell = cell
+        elif t == "NO":
+            no_cell = cell
+    # Clear both first (so the file is idempotent)
+    if si_cell: clear_cell_shading(si_cell)
+    if no_cell: clear_cell_shading(no_cell)
+    # Shade the one selected
+    if si_selected and si_cell:
+        shade_cell(si_cell)
+    elif no_selected and no_cell:
+        shade_cell(no_cell)

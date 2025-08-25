@@ -6,14 +6,97 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>494</width>
-    <height>610</height>
+    <width>387</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
+   <item row="5" column="2" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_12">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="puesto_label">
+       <property name="text">
+        <string>Puesto</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="puesto_input"/>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="aMaterno_label">
+       <property name="text">
+        <string>Apellido Materno</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="aMaterno_input"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" colspan="4">
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="no_emp_label">
+       <property name="text">
+        <string>No. Empleado</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="no_emp_input"/>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_11">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="area_label">
+       <property name="text">
+        <string>Área</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="area_input"/>
+     </item>
+    </layout>
+   </item>
    <item row="0" column="0" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout_7">
      <property name="spacing">
@@ -74,26 +157,17 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0" colspan="4">
-    <layout class="QHBoxLayout" name="horizontalLayout_8">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetDefaultConstraint</enum>
-     </property>
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
+   <item row="6" column="2" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_13">
      <item>
-      <widget class="QLabel" name="no_emp_label">
+      <widget class="QLabel" name="fecha_ingreso_label">
        <property name="text">
-        <string>No. Empleado</string>
+        <string>Fecha de Ingreso</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="no_emp_input"/>
+      <widget class="QDateEdit" name="fecha_ingreso_input"/>
      </item>
     </layout>
    </item>
@@ -140,107 +214,181 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
+   <item row="8" column="0" colspan="4">
+    <layout class="QHBoxLayout" name="horizontalLayout_15">
      <item>
-      <widget class="QLabel" name="aPaterno_label">
+      <widget class="QLabel" name="dia_descanso_label">
        <property name="text">
-        <string>Apellido Paterno</string>
+        <string>Día de Descanso</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="aPaterno_input"/>
+      <widget class="QLineEdit" name="dia_descanso_input"/>
      </item>
-    </layout>
-   </item>
-   <item row="3" column="1" colspan="2">
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
      <item>
-      <widget class="QLabel" name="aMaterno_label">
-       <property name="text">
-        <string>Apellido Materno</string>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="aMaterno_input"/>
-     </item>
-    </layout>
-   </item>
-   <item row="3" column="3">
-    <layout class="QVBoxLayout" name="verticalLayout_6">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="nombre_label">
+      <widget class="QLabel" name="dias_disfrutar_label">
        <property name="text">
-        <string>Nombre (s)</string>
+        <string>Días a Disfrutar</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="nombre_input"/>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="0" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout_11">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="area_label">
-       <property name="text">
-        <string>Área</string>
+      <widget class="QSpinBox" name="dias_disfrutar_input">
+       <property name="minimum">
+        <number>1</number>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="area_input"/>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="2" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout_12">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="puesto_label">
+      <widget class="QLabel" name="tipo_label">
        <property name="text">
-        <string>Puesto</string>
+        <string>Tipo de permiso</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="puesto_input"/>
+      <widget class="QComboBox" name="tipo_input">
+       <item>
+        <property name="text">
+         <string>Económico</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cuidados a terceros</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nupcias</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sin goce de sueldo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Prejubilatoria</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nacimiento</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Defunción</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cumpleaños</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item row="9" column="0" colspan="4">
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="inicio_label">
+       <property name="text">
+        <string>Inicio</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="termino_label">
+       <property name="text">
+        <string>Termina</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="reincorporacion_label">
+       <property name="text">
+        <string>Reincorporación</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QDateEdit" name="reincorporacion_input"/>
+       </item>
+       <item>
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="reincorporacion_text_input">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QDateEdit" name="inicio_input"/>
+       </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="inicio_text_input">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QDateEdit" name="termino_input"/>
+       </item>
+       <item>
+        <widget class="Line" name="line_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="termino_text_input">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
       <widget class="QLabel" name="label">
@@ -272,21 +420,92 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="2" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout_13">
-     <item>
-      <widget class="QLabel" name="fecha_ingreso_label">
+   <item row="10" column="0" colspan="4">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item row="0" column="1">
+      <widget class="QTextEdit" name="observ_input"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="observ_label">
        <property name="text">
-        <string>Fecha de Ingreso</string>
+        <string>Obvervaciones</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="11" column="0" colspan="4">
+    <layout class="QVBoxLayout" name="q_table_layout_2">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="table_label">
+       <property name="text">
+        <string>Registros recientes</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="fecha_ingreso_input"/>
+      <widget class="QTableWidget" name="table_display"/>
      </item>
     </layout>
    </item>
-   <item row="6" column="0" colspan="4">
+   <item row="12" column="0" colspan="4">
+    <widget class="QPushButton" name="registrar_btn">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777210</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Registrar</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="aPaterno_label">
+       <property name="text">
+        <string>Apellido Paterno</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="aPaterno_input"/>
+     </item>
+    </layout>
+   </item>
+   <item row="7" column="0" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout_14">
      <property name="topMargin">
       <number>5</number>
@@ -329,96 +548,8 @@
      </item>
     </layout>
    </item>
-   <item row="7" column="0" colspan="4">
-    <layout class="QHBoxLayout" name="horizontalLayout_15">
-     <item>
-      <widget class="QLabel" name="dia_descanso_label">
-       <property name="text">
-        <string>Día de Descanso</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="dia_descanso_input"/>
-     </item>
-     <item>
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="dias_disfrutar_label">
-       <property name="text">
-        <string>Días a Disfrutar</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSpinBox" name="dias_disfrutar_input"/>
-     </item>
-    </layout>
-   </item>
-   <item row="8" column="0" colspan="4">
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="inicio_label">
-       <property name="text">
-        <string>Inicio</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="termino_label">
-       <property name="text">
-        <string>Termina</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="reincorporacion_label">
-       <property name="text">
-        <string>Reincorporación</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QDateEdit" name="inicio_input"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QDateEdit" name="termino_input"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QDateEdit" name="reincorporacion_input"/>
-     </item>
-    </layout>
-   </item>
-   <item row="9" column="0" colspan="4">
-    <layout class="QGridLayout" name="gridLayout">
-     <property name="topMargin">
-      <number>5</number>
-     </property>
-     <property name="bottomMargin">
-      <number>5</number>
-     </property>
-     <item row="0" column="1">
-      <widget class="QTextEdit" name="observ_input"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="observ_label">
-       <property name="text">
-        <string>Obvervaciones</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="10" column="0" colspan="4">
-    <layout class="QVBoxLayout" name="table_layout">
+   <item row="4" column="3">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
      <property name="topMargin">
       <number>5</number>
      </property>
@@ -426,38 +557,16 @@
       <number>5</number>
      </property>
      <item>
-      <widget class="QLabel" name="table_label">
+      <widget class="QLabel" name="nombre_label">
        <property name="text">
-        <string>Registros recientes</string>
+        <string>Nombre (s)</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="table_display"/>
+      <widget class="QLineEdit" name="nombre_input"/>
      </item>
     </layout>
-   </item>
-   <item row="11" column="0" colspan="4">
-    <widget class="QPushButton" name="registrar_btn">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777210</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Registrar</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

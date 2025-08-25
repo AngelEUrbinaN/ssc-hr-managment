@@ -14,11 +14,11 @@ class QuinquenioWidget(QWidget):
         self.ui.nombre_input.setReadOnly(True)
         self.ui.aPaterno_input.setReadOnly(True)
         self.ui.aMaterno_input.setReadOnly(True)
-        self.ui.direccion_input.setReadOnly(True)
-        self.ui.area_input.setReadOnly(True)
+        self.ui.direccion_input.setReadOnly(False)
+        self.ui.area_input.setReadOnly(False)
         self.ui.ingreso_input.setReadOnly(True)
-        self.ui.antiguedad_input.setReadOnly(True)
-        self.ui.quinquenio_input.setReadOnly(True)
+        self.ui.antiguedad_input.setReadOnly(False)
+        self.ui.quinquenio_input.setReadOnly(False)
 
         # Set ReadOnly the registrar button
         self.ui.q_registrar_btn.setDisabled(True)
@@ -70,7 +70,7 @@ class QuinquenioWidget(QWidget):
     
     def get_quinquenio(self, seniority):
         quinquenio = seniority // 5
-        quinquenio_list = ['Aún no hay quinquenio', 'Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Séptimo', 'Octavo', 'Noveno', 'Décimo', 'INDEFINIDO']
+        quinquenio_list = ['Aún no hay quinquenio', 'Primer', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Séptimo', 'Octavo', 'Noveno', 'Décimo', 'INDEFINIDO']
         return quinquenio_list[quinquenio]
     
     def format_date_string(self, date_obj):

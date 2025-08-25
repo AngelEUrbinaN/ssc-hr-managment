@@ -222,7 +222,7 @@ class Ui_Form(object):
         self.no_emp_label.setText(_translate("Form", "No. Empleado"))
         self.nombre_label.setText(_translate("Form", "Nombre"))
         self.cege_label.setText(_translate("Form", "CEGE"))
-        self.cege_input.setText(_translate("Form", "S.S.C"))
+        self.cege_input.setText(_translate("Form", "S.S.C."))
         self.area_label.setText(_translate("Form", "Área"))
         self.categoria_label.setText(_translate("Form", "Categoría"))
         self.horario_label.setText(_translate("Form", "Horario de trabajo"))

@@ -156,7 +156,7 @@
      <item>
       <widget class="QLineEdit" name="cege_input">
        <property name="text">
-        <string>S.S.C</string>
+        <string>S.S.C.</string>
        </property>
        <property name="readOnly">
         <bool>false</bool>
